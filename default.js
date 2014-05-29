@@ -1,3 +1,9 @@
+// #############################################
+// ## Designed and coded by Harvey Williams   ##
+// #############################################
+// ## Requires jQuery. Licensed under GPL v3. ##
+// #############################################
+
 // ######################
 // ## Global Variables
 // ######################
@@ -30,10 +36,23 @@ var play_state=default_play_state;
 var escaped=default_escaped;
 
 var sym;
+var val;
 
 // ######################
 // ## Functions
 // ######################
+
+// Sets the animation up so all of the values are correct (and equal to the variables)
+function set() {
+	$('.twist')
+		.css('background-color', primary_color)
+		.css('animation-play-state', play_state)
+		.css('width', width + '%')
+		.css('height', height + '%')
+		.css('margin-left', offset_x + 'px')
+		.css('margin-top', offset_y + 'px');
+	$('.alt').css('background-color', secondary_color);
+}
 
 function reset() {
 	// Return the animation to only having one box
@@ -54,15 +73,10 @@ function reset() {
 	play_state=default_play_state;
 	escaped=default_escaped;
 	
-	// Reset tje current box
-	$('.twist')
-		.css('background-color', primary_color)
-		.css('animation-play-state', play_state)
-		.css('width', width + '%')
-		.css('height', height + '%')
-		.css('margin-left', offset_x + 'px')
-		.css('margin-top', offset_y + 'px');
-	$('.alt').css('background-color', secondary_color);
+	// Reset the current box
+	set();
+
+	// The wrapper overflow is the only property which doesn't effect the animtion itself
 	$('#wrapper').css('overflow', 'hidden');
 
 	// Reset all of the inputs
@@ -100,6 +114,34 @@ $(document).ready(function() {
 // ## Controls
 // ######################
 
+// Less control
+$('.control-less').click(function() {
+	val = $(this).parent().children('input').val();
+	val--;
+	$(this).parent().children('input').val(val)
+		.trigger('change');
+});
+
+// More control
+$('.control-more').click(function() {
+	val = $(this).parent().children('input').val();
+	val++;
+	$(this).parent().children('input').val(val)
+		.trigger('change');
+});
+
+// Number control
+$('.control-number').change(function() {
+	val = $(this).val();
+	$(this).parent().children('input[type="range"]').val(val);
+});
+
+// Range control
+$('input[type="range"]').change(function() {
+	val = $(this).val();
+	$(this).parent().children('input[type="number"]').val(val);
+});
+
 // Speed
 $('input[name="speed"]').change(function() {
     speed = $(this).val();
@@ -113,8 +155,7 @@ $('select[name="type"]').change(function() {
 });
 
 // Number of objects
-// Reset
-$('#reset').click(reset());$('input[name="number"]').change(function() {
+$('input[name="number"]').change(function() {
     $('#container').empty();
     $('#container').html('<div class="twist"></div>');
     number = $(this).val();
@@ -125,15 +166,7 @@ $('#reset').click(reset());$('input[name="number"]').change(function() {
             $('.twist:last').html('<div class="twist"></div>');            
         }
     }
-
-	$('.twist')
-		.css('background-color', primary_color)
-		.css('animation-play-state', play_state)
-		.css('width', width + '%')
-		.css('height', height + '%')
-		.css('margin-left', offset_x + 'px')
-		.css('margin-top', offset_y + 'px');
-	$('.alt').css('background-color', secondary_color);
+	set();
 });
 
 // Size type
@@ -190,7 +223,6 @@ $('input[name="escape"]').change(function() {
 		$('#wrapper').css('overflow', 'hidden');
 	}
 });
-
 
 // ######################
 // ## Master Controls

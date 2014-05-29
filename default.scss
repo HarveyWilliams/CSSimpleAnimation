@@ -1,8 +1,23 @@
+// #############################################
+// ## Designed and coded by Harvey Williams   ##
+// #############################################
+// ## Made using SASS. Licensed under GPL v3. ##
+// #############################################
+
+// ######################
+// ## Reset
+// ######################
+
 * {
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
+
+// ######################
+// ## Main Styles
+// ######################
 
 html {
 	height: 94%;
@@ -49,10 +64,6 @@ body {
 	}
 }
 
-@keyframes anim {
-	100% {transform: rotate(360deg);}
-}
-
 #controls {
 	box-sizing: border-box;
 	height: 50%;
@@ -89,4 +100,56 @@ body {
 	font-size: 1.5em;
 	margin: 0 -10px 10px -10px;
 	border-bottom: 1px dashed black;
+}
+
+input[type="range"] {
+	display: inline;
+	height: 2em;
+	vertical-align: middle;
+	border: 0;
+}
+
+input[type="number"] {
+	display: inline;
+	width: 2em;
+	vertical-align: middle;
+
+	// Remove spinner (up and down arrows)
+	-moz-appearance: textfield;
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+	}
+}
+
+.control {
+	display: inline;
+	width: 1em;
+	vertical-align: middle;
+
+}
+
+.control-less, .control-more {
+	height: 2em;
+	border: 0;
+	background-color: transparent;
+}
+
+.control-number {
+	display: inline;
+	width: 2em;
+	vertical-align: middle;
+
+	// Remove spinner (up and down arrows)
+	-moz-appearance: textfield;
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+	}
+}
+
+// ######################
+// ## Animations
+// ######################
+
+@keyframes anim {
+	100% {transform: rotate(360deg);}
 }
