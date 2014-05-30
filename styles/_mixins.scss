@@ -1,0 +1,26 @@
+
+//Mixins
+@mixin transition ($transition) {
+	-webkit-transition: $transition; 
+    -moz-transition: $transition; 
+    -o-transition: $transition; 
+     transition: $transition; 
+}
+
+@mixin box-sizing ($box-sizing) {
+	-webkit-box-sizing: $box-sizing; 
+	-moz-box-sizing: $box-sizing;    
+	box-sizing: $box-sizing;    
+}
+
+@mixin respond-to($media) {
+  @if $media == small-screens {  //Min-Width 600px
+    @media only screen and (min-width: $break-small) { @content; }
+  }
+  @else if $media == medium-screens { //Min-Width 960px
+    @media only screen and (min-width: $break-medium) { @content; }
+  }
+  @else if $media == large-screens { //Min-Width 1024px
+     @media only screen and (min-width: $break-large) { @content; }
+  }
+}
