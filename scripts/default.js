@@ -110,6 +110,16 @@ $(document).ready(function() {
 });
 
 // ######################
+// ## Show
+// ######################
+
+$('.toggle_switch').change(function() {
+	var val=$(this).val();
+	$('.show').hide();
+	$('[type="' + val + '"]').toggle();
+});
+
+// ######################
 // ## Controls
 // ######################
 
@@ -152,13 +162,13 @@ $('input[type="range"]').change(function() {
 // Speed
 $('input[name="speed"]').change(function() {
     speed = $(this).val();
-    $('.twist').css('animation', 'spin ' + speed +'s ' + type + ' infinite');
+    $('.twist').css('animation', 'spin ' + speed +'s ' + type + '0s infinite');
 });
 
 // Animation type
 $('select[name="type"]').change(function() {
 	type = $(this).val();
-	$('.twist').css('animation', 'anim ' + speed + 's ' + type + ' infinite');
+	$('.twist').css('animation', 'anim ' + speed + 's ' + type + '0s infinite');
 });
 
 // Number of objects
@@ -226,8 +236,10 @@ $('input[name="secondary_color"]').change(function() {
 $('input[name="escape"]').change(function() {
 	if ($(this).prop('checked')) {
 		$('#animation-wrapper').css('overflow', 'visible');
+		$('.wrapper').css('overflow', 'visible');
 	} else {
 		$('#animation-wrapper').css('overflow', 'hidden');
+		$('.wrapper').css('overflow', 'hidden');
 	}
 });
 

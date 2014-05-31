@@ -3,10 +3,11 @@
 	<head>
 		<title>CSS Gimick</title>
 		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width"/>
 		<link rel="stylesheet" href="styles/default.css"/>
 	</head>
 	<body>
-		<div class="version">Version 0.1</div>
+		<div class="version">Version 0.2</div>
 		<div class="wrapper">
 			<div id="animation-wrapper">
 				<div class="title">CSSimple Animation</div>
@@ -14,25 +15,34 @@
 					<div class="twist"></div>
 				</div>
 			</div>
-			<div id="controls">
+			<div id="controls-wrapper">
 				<div class="title">Controls</div>
 				<fieldset>
-					<legend>Animation</legend>
-					<select name="animation_1">
-						<option value="spin">Spin</option>
-						<option value="translate">Translate</option>
-					</select>
-					<div class="animation_1" type="spin">
-						<div>
-							<button class="control control-less">-</button>
-							<input type="range" name="spin" min="-360" max="360" value="0"/>
-							<button class="control control-more">+</button>
-							<input class="control control-number" type="number" name="spin" min="-360" max="360" value="0"/>
+					<legend>Animations</legend>
+					<fieldset>
+						<legend>Effect 1:
+							<select class="toggle_switch" name="animation_1">
+								<option value="spin">Spin</option>
+								<option value="translate">Translate</option>
+							</select>
+						</legend>
+						<div class="show animation_1" type="spin">
+							<div>
+								<button class="control control-less">-</button>
+								<input type="range" name="spin" min="-360" max="360" value="0"/>
+								<button class="control control-more">+</button>
+								<input class="control control-number" type="number" name="spin" min="-360" max="360" value="0"/>
+							</div>
 						</div>
-					</div>
-					<div class="animation_1" type="translate">
-
-					</div>
+						<div class="show animation_1" type="translate">
+							<input type="number" name="translate" value="0"/>
+							<br />
+							<span>Percent<span>
+							<input type="radio" name="translate_type" value="percent"/>
+							<span>Pixels</span>
+							<input type="radio" name="translate_type" value="pixels"/>
+						</div>
+					</fieldset>
 				</fieldset>
 				<fieldset>
 					<legend>Time to take to complete one animation (seconds)</legend>

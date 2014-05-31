@@ -1,10 +1,33 @@
-
 //Mixins
-@mixin transition ($transition) {
-	-webkit-transition: $transition; 
-    -moz-transition: $transition; 
-    -o-transition: $transition; 
-     transition: $transition; 
+@mixin transition ($val) {
+	-webkit-transition: $val; 
+    -moz-transition: $val; 
+    -o-transition: $val; 
+     transition: $val; 
+}
+
+@mixin transform ($val) {
+	-webkit-transform: $val;
+	-moz-transform: $val;
+	-ms-transform: $val;
+	-o-transform: $val;
+	transform: $val;
+}
+
+@mixin animation ($val) {
+	-webkit-animation: $val;
+	-moz-animation: $val;
+	-ms-animation: $val;
+	-o-animation: $val;
+	animation: $val;
+}
+
+@mixin transform-origin ($val) {
+	-webkit-transform-origin: $val;
+	-moz-transform-origin: $val;
+	-ms-transform-origin: $val;
+	-o-transform-origin: $val;
+	transform-origin: $val;
 }
 
 @mixin box-sizing ($box-sizing) {
