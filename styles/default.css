@@ -61,11 +61,11 @@ body {
       -ms-transform-origin: 50% 50%;
       -o-transform-origin: 50% 50%;
       transform-origin: 50% 50%;
-      -webkit-animation: spin 10s infinite 0s linear;
-      -moz-animation: spin 10s infinite 0s linear;
-      -ms-animation: spin 10s infinite 0s linear;
-      -o-animation: spin 10s infinite 0s linear;
-      animation: spin 10s infinite 0s linear;
+      -webkit-animation: 10s linear 0s normal none infinite spin;
+      -moz-animation: 10s linear 0s normal none infinite spin;
+      -ms-animation: 10s linear 0s normal none infinite spin;
+      -o-animation: 10s linear 0s normal none infinite spin;
+      animation: 10s linear 0s normal none infinite spin;
       border: 1px solid black; }
     #animation-wrapper #animation-container .alt {
       background-color: yellow; }
@@ -111,6 +111,18 @@ input[type="number"] {
   input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none; }
 
+input[type="color"] {
+  float: left;
+  width: 50px;
+  height: 1.5em;
+  border: 0;
+  cursor: pointer; }
+
+.color {
+  float: left;
+  height: 1.5em;
+  width: 5em; }
+
 .control {
   display: inline;
   width: 1em;
@@ -136,7 +148,9 @@ fieldset {
   border-top: 1px solid lightblue;
   border-bottom: 1px solid lightblue; }
   fieldset fieldset {
-    border: 1px solid lightblue; }
+    border: 1px dashed lightblue; }
+    fieldset fieldset legend {
+      border: 1px dashed lightblue; }
   fieldset legend {
     padding: 0 5px;
     border: 1px solid lightblue; }

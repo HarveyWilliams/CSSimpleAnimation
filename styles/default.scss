@@ -87,7 +87,7 @@ body {
 			height: 100%;
 			background-color: red;
 			@include transform-origin(50% 50%);
-			@include animation(spin 10s infinite 0s linear);
+			@include animation(10s linear 0s normal none infinite spin);
 			border: 1px solid black;
 		}
 
@@ -152,6 +152,20 @@ input[type="number"] {
 	}
 }
 
+input[type="color"] {
+	float: left;
+	width: 50px;
+	height: 1.5em;
+	border: 0;
+	cursor: pointer;
+}
+
+.color {	
+	float: left;
+	height: 1.5em;
+	width: 5em;
+}
+
 .control {
 	display: inline;
 	width: 1em;
@@ -185,7 +199,11 @@ fieldset {
 	border-bottom: 1px solid lightblue;
 
 	fieldset {
-		border: 1px solid lightblue;
+		border: 1px dashed lightblue;
+
+		legend {
+			border: 1px dashed lightblue;
+		}
 	}
 
 	legend {
